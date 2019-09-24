@@ -1,0 +1,7 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.box_version = "20190621.0.0"
+  config.vm.provision :shell, path: "bootstrap.sh" 
+  config.vm.network "forwarded_port", host_ip: "127.0.0.1", guest: 8080, host: 16000
+  config.vm.network "forwarded_port", host_ip: "127.0.0.1", guest: 7000, host: 15000
+end
